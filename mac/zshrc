@@ -141,7 +141,9 @@ alias gcm='git commit -m'
 alias gch='git checkout'
 alias gchb='git checkout -b'
 alias gchm='git checkout $(git_main_branch)'
-alias gcht='git checkout -t origin/'
+alias gcht='git checkout -t'
+
+alias gcp='git cherry-pick'
 
 alias gd='git diff'
 alias gdc='git diff --cached'
@@ -150,6 +152,7 @@ alias gdd='git diff dev'
 
 alias gf='git fetch'
 alias gfo='git fetch origin'
+alias gfp='git fetch --prune'
 
 alias gl='git log'
 alias glg='git log --graph'
@@ -192,7 +195,7 @@ alias y='yarn'
 alias ya='yarn add'
 alias yad='yarn add -D'
 
-alias yci='yarn install —frozen-lockfile'
+alias yci='yarn install --frozen-lockfile'
 
 alias yr='yarn run'
 alias yrv='yarn remove'
@@ -202,3 +205,17 @@ alias yu='yarn upgrade'
 # Vim
 alias vi='nvim'
 alias vim='nvim'
+
+# Albamon
+alias yat='yarn all:typecheck'
+alias yss='yarn services'
+alias ysp='yarn personal'
+alias ysb='yarn business'
+alias ysa='yarn alba-talk'
+
+# Pnpm
+alias pn='pnpm'
+alias pni='pnpm install'
+alias pna='pnpm add'
+alias pnd='pnpm add -D'
+alias pnrv='pnpm remove'
