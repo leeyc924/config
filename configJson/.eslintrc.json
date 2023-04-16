@@ -1,0 +1,50 @@
+{
+  "root": true,
+  "plugins": ["jsx-a11y"],
+  "ignorePatterns": ["*.js", "*.config.*"],
+  "overrides": [
+    {
+      "files": ["*.ts", "*.tsx"],
+      "extends": ["plugin:prettier/recommended"],
+      "rules": {
+        "prefer-const": "error",
+        "no-prototype-builtins": "off",
+        "no-console": "error",
+        "no-case-declarations": "off",
+        "react/react-in-jsx-scope": "off",
+        "react/prop-types": "off",
+        "react/no-unescaped-entities": "off",
+        "react/display-name": "off",
+        "react-hooks/rules-of-hooks": "off",
+        "import/no-anonymous-default-export": "off",
+        "jsx-a11y/role-supports-aria-props": "off",
+        "@next/next/no-img-element": "off",
+        "@typescript-eslint/ban-ts-comment": "off",
+        "@typescript-eslint/no-non-null-assertion": "off",
+        "@typescript-eslint/no-unused-vars": "warn",
+        "@typescript-eslint/no-explicit-any": "warn",
+        "@typescript-eslint/explicit-module-boundary-types": "off",
+        "no-restricted-globals": "off",
+        "@typescript-eslint/no-loss-of-precision": "off"
+      }
+    },
+    {
+      "files": "*.tsx",
+      "rules": {
+        "jsx-a11y/no-noninteractive-element-interactions": [
+          "error",
+          {
+            "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
+          }
+        ],
+        "jsx-a11y/no-static-element-interactions": [
+          "error",
+          {
+            "handlers": ["onClick", "onMouseDown", "onMouseUp", "onKeyPress", "onKeyDown", "onKeyUp"]
+          }
+        ],
+        "jsx-a11y/no-noninteractive-tabindex": "warn"
+      }
+    }
+  ]
+}
