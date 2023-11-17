@@ -1,5 +1,10 @@
-export PATH=/opt/homebrew/bin:$PATH
+HOME_BREW="/opt/homebrew/bin"
+PNPM_HOME="$HOME/Library/pnpm"
 
+export PATH="$HOME_BREW:$PNPM_HOME:$PATH:"
+
+# alias git="LANG=\"ko_KR.UTF-8\" git"
+# export LANG=ko_KR.UTF-8
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -156,6 +161,8 @@ alias gfp='git fetch --prune'
 
 alias gl='git log'
 alias glg='git log --graph'
+alias glgo='git log --graph --oneline'
+alias glgoa='git log --graph --oneline --all'
 
 alias gm='git merge'
 alias gms='git merge --squash'
@@ -173,6 +180,11 @@ alias gs='git status'
 alias gst='git stash'
 alias gstp='git stash pop'
 
+alias grv='git revert --no-edit'
+
+alias gcln='git config --local user.name "leeyc924"'
+alias gcle='git config --local user.email "leeyc924@naver.com"'
+
 # NPM
 alias n='npm'
 
@@ -189,33 +201,33 @@ alias nud='npm update --save/--save-dev'
 alias py='python3'
 alias pip='pip3'
 
-# Yarn
-alias y='yarn'
-
-alias ya='yarn add'
-alias yad='yarn add -D'
-
-alias yci='yarn install --frozen-lockfile'
-
-alias yr='yarn run'
-alias yrv='yarn remove'
-
-alias yu='yarn upgrade'
-
 # Vim
 alias vi='nvim'
 alias vim='nvim'
 
-# Albamon
-alias yat='yarn all:typecheck'
-alias yss='yarn services'
-alias ysp='yarn personal'
-alias ysb='yarn business'
-alias ysa='yarn alba-talk'
+#kill port
+alias kp='function killport() { lsof -i :"$1" | awk "NR!=1 {print \$2}" | xargs kill -9; }; killport'
 
-# Pnpm
-alias pn='pnpm'
-alias pni='pnpm install'
-alias pna='pnpm add'
-alias pnd='pnpm add -D'
-alias pnrv='pnpm remove'
+#package
+function p {
+    if [[ -f pnpm-lock.yaml ]]; then
+        command pnpm "$@"
+    elif [[ -f yarn.lock ]]; then
+        command yarn "$@"
+    elif [[ -f package-lock.json ]]; then
+        command npm "$@"
+    elif [[ -f bun.lockb ]]; then
+        command bun "$@"
+    else
+        command pnpm "$@"
+    fi
+}
+
+alias pi="p install"
+alias pa="p add"
+alias pad="p add -D"
+alias prv="p remove"
+alias psp="p store prune"
+
+#workspace
+alias ws="cd $HOME/Desktop/workspace"
