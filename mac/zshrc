@@ -185,18 +185,6 @@ alias grv='git revert --no-edit'
 alias gcln='git config --local user.name "leeyc924"'
 alias gcle='git config --local user.email "leeyc924@naver.com"'
 
-# NPM
-alias n='npm'
-
-alias ni='npm i'
-alias nid='npm i -D'
-
-alias nr='npm run'
-alias nrv='npm uninstall'
-
-alias nu='npm update'
-alias nud='npm update --save/--save-dev'
-
 # Python
 alias py='python3'
 alias pip='pip3'
@@ -231,3 +219,11 @@ alias psp="p store prune"
 
 #workspace
 alias ws="cd $HOME/Desktop/workspace"
+
+
+
+export PNPM_HOME="/Users/leeyc/Library/pnpm"
+case ":$PATH:" in
+  *":$PNPM_HOME:"*) ;;
+  *) export PATH="$PNPM_HOME:$PATH" ;;
+esac
